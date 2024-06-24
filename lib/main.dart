@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:test2/view/testApi.dart';
+import 'package:test2/curd_opration.dart/view/testApi.dart';
 
 void main() {
   runApp(const TestApp());
