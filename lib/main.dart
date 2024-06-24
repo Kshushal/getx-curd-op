@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:test2/curd_opration/view/testApi.dart';
+import 'package:test2/login/login_screen.dart';
 
 void main() {
   runApp(const TestApp());
@@ -14,7 +15,8 @@ class TestApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
-      home: const TestApi(),
+      // home: const TestApi(),
+      home: const LoginScreen(),
     );
   }
 }
