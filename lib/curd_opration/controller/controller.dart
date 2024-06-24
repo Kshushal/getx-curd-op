@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:get/state_manager.dart';
 import 'package:http/http.dart' as http;
-import 'package:test2/curd_opration.dart/model/model.dart';
+import 'package:test2/curd_opration/model/model.dart';
 
 class DataController extends GetxController {
   String url = "https://66795dc918a459f6394f70b2.mockapi.io/apiWork";

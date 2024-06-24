@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test2/curd_opration.dart/controller/controller.dart';
-import 'package:test2/curd_opration.dart/view/data_view.dart';
+import 'package:test2/curd_opration/controller/controller.dart';
+import 'package:test2/curd_opration/view/data_view.dart';
 
 class TestApi extends StatelessWidget {
   const TestApi({super.key});

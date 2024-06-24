@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test2/curd_opration.dart/controller/controller.dart';
+import 'package:test2/curd_opration/controller/controller.dart';
 
 class DataView extends StatelessWidget {
   final bool isEdit;
