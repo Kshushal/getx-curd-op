@@ -35,7 +35,7 @@ class DataController extends GetxController {
     }
   }
 
-  Future<void> postApi(String name, String email, String mobile) async {
+  Future<void> postApi(String name, String email, String? mobile) async {
     var fetchRes = Uri.parse(url);
     try {
       isLoading(true);

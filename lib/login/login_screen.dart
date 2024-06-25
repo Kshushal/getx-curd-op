@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:test2/curd_opration/controller/controller.dart';
+import 'package:test2/curd_opration/view/testApi.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -6,6 +10,12 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    TextEditingController nameController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController mobileController = TextEditingController();
+
+    final dbController = Get.put(DataController());
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -25,70 +35,39 @@ class LoginScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    fillColor: Theme.of(context).colorScheme.onPrimary,
-                    focusColor: Theme.of(context).colorScheme.onPrimary,
-                    enabledBorder: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
-                        borderSide: BorderSide(
-                            color: Color.fromARGB(255, 25, 20, 20),
-                            width: 1.5)),
-                    focusedBorder: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
-                        borderSide: BorderSide(
-                          color: Color.fromARGB(255, 9, 7, 7),
-                          width: 1.5,
-                        )),
-                    errorMaxLines: 2,
-                    disabledBorder: const OutlineInputBorder(
-                        gapPadding: 0, borderRadius: BorderRadius.zero),
-                    isDense: true,
-                    label: const Text(
-                      "Email",
-                      style: TextStyle(color: Color.fromARGB(255, 4, 3, 3)),
-                    ),
-                    labelStyle: TextStyle(
-                        color: Theme.of(context).colorScheme.onPrimary,
-                        fontSize: 14),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    decoration:
+                        const InputDecoration(border: OutlineInputBorder()),
+                    controller: nameController,
                   ),
                 ),
-                SizedBox(
-                  height: 15,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    decoration:
+                        const InputDecoration(border: OutlineInputBorder()),
+                    controller: emailController,
+                  ),
                 ),
-                TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    fillColor: Theme.of(context).colorScheme.onPrimary,
-                    focusColor: Theme.of(context).colorScheme.onPrimary,
-                    enabledBorder: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
-                        borderSide: BorderSide(
-                            color: Color.fromARGB(255, 9, 8, 8), width: 1.5)),
-                    focusedBorder: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
-                        borderSide: BorderSide(
-                          color: Color.fromARGB(255, 12, 10, 10),
-                          width: 1.5,
-                        )),
-                    errorMaxLines: 2,
-                    disabledBorder: const OutlineInputBorder(
-                        gapPadding: 0, borderRadius: BorderRadius.zero),
-                    isDense: true,
-                    label: const Text(
-                      "Password",
-                      style: TextStyle(color: Color.fromARGB(255, 8, 6, 6)),
-                    ),
-                    labelStyle: TextStyle(
-                        color: Theme.of(context).colorScheme.onPrimary,
-                        fontSize: 14),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    decoration:
+                        const InputDecoration(border: OutlineInputBorder()),
+                    controller: mobileController,
                   ),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
                 OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      dbController.postApi(nameController.text,
+                          emailController.text, mobileController.text);
+                      Get.to(() => TestApi());
+                    },
                     child: const Text("login",
                         textAlign: TextAlign.center,
                         style: TextStyle(
