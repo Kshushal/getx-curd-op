@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       dbController.postApi(nameController.text,
                           emailController.text, mobileController.text);
-                      Get.to(() => TestApi());
+                      Get.to(() => const TestApi());
                     },
                     child: const Text("login",
                         textAlign: TextAlign.center,
